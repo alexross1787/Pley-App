@@ -8,9 +8,16 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
     "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-scripts": "^5.0.1",
+=======
+    "react-scripts": "^3.0.1",
+    "sequelize": "^6.37.2",
+>>>>>>> f8acfae3846fae33ba2f9ab96ed2c5d7db891aba
     "web-vitals": "^2.1.4"
   },
   "scripts": {
