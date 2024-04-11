@@ -1,4 +1,4 @@
-//For individual reservations made by users for specific restaurants and timeslots.
+//individual reservations made by users for specific restaurants and timeslots.
 //Contains: user ID (foreign key), restaurant ID (foreign key), reservation date and time, party size, and status (e.g., confirmed, canceled), and special request.
 
 const { Model } = require('sequelize');
