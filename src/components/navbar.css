@@ -1,9 +1,16 @@
 
+.container {
+    margin: 0; 
+    padding: 0;
+}
 
 .navbar-brand {
     color: #cc5200;
     font-family: sans-serif; /* find cooler font and add logo; */
-    font-size: xx-large;    
+    font-size: medium;    
     font-weight: bolder;
+    margin: 0;
+    padding: 0;
 
 }
+
