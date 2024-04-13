@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./gallery.css" 
+import "./styles.css/gallery.css" 
 
 export default function Gallery() {
     return (

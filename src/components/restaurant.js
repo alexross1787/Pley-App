@@ -5,10 +5,10 @@ import "./styles.css/restaurants.css"
 export default function Restaurants() {
     return (
         <div>
-        <h2>Trending</h2>
         <div className="rest-card">
-            
-        <img className="card-img-top" src="..." alt="Card image cap"/>
+            <div className='rest-img-container'>
+        <img className="card-img-top" src="/restaurant-sample-pic.jpg" alt="Card image cap"/>
+        </div>
         <div className="card-body">
           <h5 className="card-title">Restaurant Name</h5>
           <p className="card-text">This restaurant serves blah blah blah. </p>

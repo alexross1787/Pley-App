@@ -1,9 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./styles.css/searchbar.css"
 
 export default function SearchBar() {
   return ( 
-    <div className='searchbrContainer'>Find Something New
+    <div className='searchbar-container'>Find Something New
     <div className='input-group input-group-md'> 
       <div className='input-group-prepend'>
 
