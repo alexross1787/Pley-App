@@ -17,7 +17,8 @@ export default function Navbar() {
        
           
             </div>
-             <SearchBar /></div></nav>
+             <SearchBar />
+             </div></nav>
             </div>
     )
 }
