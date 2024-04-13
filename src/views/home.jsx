@@ -9,9 +9,7 @@ function Home() {
     return (
         <div>
     <Navbar />
-    <div searcbar-container>
-    <SearchBar />
-    </div>
+    
     <Gallery />
     <div className="rest-container">
        <div className="card-header"> <h2>Trending</h2> </div>

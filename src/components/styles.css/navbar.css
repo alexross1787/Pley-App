@@ -1,16 +1,34 @@
 
-.container {
+.tagline-container {
     margin: 0; 
-    padding: 0;
+    padding: 2em;
+    display: flex;
+
 }
 
 .navbar-brand {
     color: #cc5200;
     font-family: sans-serif; /* find cooler font; */
-    font-size: medium;    
+    font-size: large;    
     font-weight: bolder;
-    margin: 0;
+    margin: 0 ;
     padding: 0;
 
 }
 
+.searchbar-container {
+    padding: 0;
+    margin: 0;
+    width: 60%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 39%;
+    left: 31%;
+
+}
+.nav-searchbar-container {
+    display: flex;
+    width: 90%;
+}
