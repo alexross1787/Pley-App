@@ -5,6 +5,9 @@ import SearchBar from "../components/searchbar";
 import Restaurants from "../components/restaurant";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Yelp API not working... need to find out how to fix and integrate into search bar :P
+// import { searchFunction } from "../api/searchFunction";
+
 function Home() {
   const handleSearch = (searchTerm) => {
     console.log('Searching for:', searchTerm);
