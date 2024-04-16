@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import Gallery from "../components/gallery";
 import SearchBar from "../components/searchbar";
-import Restaurants from "../components/restaurant";
+import Restaurant from "../components/restaurant";
+import Footer from "../components/footer"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Home() {
+export default function Home() {
   const handleSearch = (searchTerm) => {
     console.log('Searching for:', searchTerm);
   }
@@ -18,13 +19,13 @@ function Home() {
        <div class="container">
   <div class="row">
     <div class="col-sm">
-      <Restaurants />
+      <Restaurant />
     </div>
     <div class="col-sm">
-    <Restaurants />
+    <Restaurant />
     </div>
     <div class="col-sm">
-    <Restaurants />
+    <Restaurant />
     </div>
   </div>
 </div>
@@ -33,17 +34,33 @@ function Home() {
        <div class="container">
   <div class="row">
     <div class="col-sm">
-      <Restaurants />
+      <Restaurant />
     </div>
     <div class="col-sm">
-    <Restaurants />
+    <Restaurant />
     </div>
     <div class="col-sm">
-    <Restaurants />
+    <Restaurant />
 
     </div>
   </div>
 </div>
+<div className="card-header"> <h2>Nearby</h2> </div>
+       <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <Restaurant />
+    </div>
+    <div class="col-sm">
+    <Restaurant />
+    </div>
+    <div class="col-sm">
+    <Restaurant />
+    </div>
+    
+  </div>
+</div>
+<Footer />
 </div>
 
 
@@ -51,5 +68,3 @@ function Home() {
 )
 
 }
-
-export default Home;
