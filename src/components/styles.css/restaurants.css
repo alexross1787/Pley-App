@@ -1,6 +1,3 @@
-* {
-    outline: 1px solid red;
-}
 
 .rest-container {
     display: flex;
@@ -8,18 +5,31 @@
     justify-content: space-between;
 }
 
+.card-header {
+    width: 100%;
+}
 .rest-card {
     width: 100%;
     outline: 1px solid black;
     background-color: grey;
+    padding-top: 20% 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10%;
+    overflow: hidden;
     
 }
 
-.card-header {
+.rest-img-container {
     width: 100%;
 }
 
 
 .card-img-top {
-    width: 90%;
+    width: 100%;
+}
+h2 {
+    font-size: x-large;
+    font-family: 'Baloo 2';
+    padding: 0 2em;
 }

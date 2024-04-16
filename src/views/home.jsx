@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import Gallery from "../components/gallery";
 import SearchBar from "../components/searchbar";
 import Restaurants from "../components/restaurant";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Yelp API not working... need to find out how to fix and integrate into search bar :P
+import { searchFunction } from "../api/searchFunction";
+
 function Home() {
+  const handleSearch = (searchTerm) => {
+    console.log('Searching for:', searchTerm);
+  }
     return (
         <div>
     <Navbar />
-    <div searcbar-container>
-    <SearchBar />
-    </div>
     <Gallery />
     <div className="rest-container">
        <div className="card-header"> <h2>Trending</h2> </div>
@@ -25,7 +28,6 @@ function Home() {
     </div>
     <div class="col-sm">
     <Restaurants />
-
     </div>
   </div>
 </div>

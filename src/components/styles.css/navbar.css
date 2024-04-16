@@ -1,16 +1,67 @@
-
-.container {
-    margin: 0; 
-    padding: 0;
+.sticky-navbar {
+    position: sticky;
+    top: 0;
 }
 
+
+.bg-custom {
+    background-color: white;
+}
+
+.navbar {
+    height: 80px;
+
+}
+
+
 .navbar-brand {
-    color: #cc5200;
-    font-family: sans-serif; /* find cooler font; */
-    font-size: medium;    
-    font-weight: bolder;
-    margin: 0;
+    margin: 0 ;
     padding: 0;
+    outline: 1px solid yellow;
+    color: #cc5200;
+
+}
+
+.pley-logo {
+    height: 100%;
+}
+.tagline-container {
+    margin: 0; 
+    padding: 0;
+    
+
+}
+
+.tagline {
+    margin: 0 ;
+    padding: 1em;
+    color: #cc5200;
+    font-size: large;
+    font-family: 'Baloo 2';
+    font-weight: bolder;
+    height: 50%;
+   
+}
+
+.nav-searchbar-container {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 90%;
+    height: 5em;
+    padding: .5em;
+
+}
+.searchbar-container {
+    padding: 0;
+    margin: 0;
+    width: 60%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 25%;
+    
 
 }
 
