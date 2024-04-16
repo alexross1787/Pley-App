@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Yelp API not working... need to find out how to fix and integrate into search bar :P
-// import { searchFunction } from "../api/searchFunction";
+import { searchFunction } from "../api/searchFunction";
 
 export default function Home() {
   const handleSearch = (searchTerm) => {

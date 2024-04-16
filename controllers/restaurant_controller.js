@@ -1,17 +1,41 @@
-//Handles restaurant-related actions such as fetching restaurant details, listing restaurants, and searching for restaurants.
-//Operations like retrieving restaurant information, updating restaurant details, and handling restaurant reviews if applicable.
-//Interacts with the restaurant model to perform CRUD operations on restaurant data.
-
 //DEPENDENCIES
-const restaurant = {};
-//FIND ALL
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
+const { Restaurant } = require('../models');
 
-// FIND SPECIFIC ITEM
+// FETCH LIST BASED ON LOCATION
+router.get('/', async (req, res) => {
+    try {
+        const restaurants = await axios.get('https://api.yelp.com/v3');
+        res.status(200).json(restaurants.data);
+    } catch (error) {
+        res.status(500).json('Failed to fetch restaurants');
+    }
+});
 
-//CREATE
+// FETCH DETAILS BY ID
+router.get('/:id', async (req, res) => {
+    try {
+        const restaurantId = req.params.id;
+        const apiKey = process.env.YELP_API_KEY;
 
-//UPDATE
+        if (!apiKey) {
+            return res.status(500).json('API key missing');
+        }
 
-//DELETE
+        const response = await axios.get(`https://api.yelp.com/v3/businesses/${restaurantId}`, {
+            headers: {
+                Authorization: `Bearer ${apiKey}`
+            }
+        });
+        const restaurantDetails = response.data;
+        res.status(200).json(restaurantDetails);
+        
+    } catch (error) {
+        console.error('Error fetching restaurant details:', error);
+        res.status(500).json('An error occurred while fetching restaurant details');
+    }
+});
 
-module.exports = restaurant
+module.exports = Restaurant;

@@ -1,17 +1,70 @@
-//Manages user reviews and ratings for restaurants.
-//Handles operations such as submitting reviews, fetching reviews for a restaurant, and calculating average ratings.
-//Interacts with the review model and possibly other related models.
+// DEPENDENCIES
+const express = require('express');
+const router = express.Router();
+const { Review } = require('../models');
 
-//DEPENDENCIES
-const review = {};
-//FIND ALL
+// FETCH ALL REVIEWS
+router.get('/', async (req, res) => {
+    try {
+        const reviews = await Review.findAll();
+        res.status(200).json(reviews);
+    } catch (error) {
+        res.status(500).json('Failed to fetch reviews');
+    }
+});
 
-// FIND SPECIFIC ITEM
+// FETCH REVIEW BY ID
+router.get('/:id', async (req, res) => {
+    try {
+        const reviewId = req.params.id;
+        const review = await Review.findOne({ where: { id: reviewId } });
 
-//CREATE
+        if (!review) return res.status(404).json('Review not found');
+        res.status(200).json(review);
+    } catch (error) {
+        res.status(500).json('An error occurred while fetching review details');
+    }
+});
 
-//UPDATE
+// CREATE REVIEW
+router.post('/', async (req, res) => {
+    const { title, content, rating, restaurantId, userId } = req.body;
+    try {
+        const newReview = await Review.create({ title, content, rating, restaurantId, userId });
+        res.status(201).json(newReview);
+    } catch (error) {
+        res.status(500).json('Failed to create review');
+    }
+});
 
-//DELETE
+// UPDATE REVIEW
+router.put('/:id', async (req, res) => {
+    try {
+        const reviewId = req.params.id;
+        const review = await Review.findOne({ where: { id: reviewId } });
 
-module.exports = review
+        if (!review) return res.status(404).json('Review not found');
+        
+        await review.update(req.body);
+        res.status(200).json(review);
+    } catch (error) {
+        res.status(500).json('Failed to update review');
+    }
+});
+
+// DELETE REVIEW
+router.delete('/:id', async (req, res) => {
+    try {
+        const reviewId = req.params.id;
+        const review = await Review.findOne({ where: { id: reviewId } });
+
+        if (!review) return res.status(404).json('Review not found');
+        
+        await review.destroy();
+        res.status(200).json('Review deleted successfully');
+    } catch (error) {
+        res.status(500).json('Failed to delete review' );
+    }
+});
+
+module.exports = Review;
