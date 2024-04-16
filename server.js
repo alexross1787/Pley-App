@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const axios = require('axios');
+const yelpController = require('./controllers/yelpController')
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();
@@ -15,9 +15,10 @@ app.get('/', (req, res) => {
 });
 
 // CONTROLLERS
+app.use("/api", yelpController)
 
 // LISTEN
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
