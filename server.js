@@ -1,10 +1,12 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const yelpController = require('./controllers/yelpController')
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();
+app.use(cors());
 app.use(express.json());
 
 // ROOT
