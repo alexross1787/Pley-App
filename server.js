@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const yelpController = require('./controllers/yelpController')
+const yelpController = require('./controllers/yelp_controller')
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();

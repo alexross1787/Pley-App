@@ -1,5 +1,6 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
+/* Yelp Controller: * Author:(Moreta, O) * Date: (April 16, 2024) * Avaialbility: (In class assistance) */
 const fetchData = async (searchTerm) => {
     try {
         const options = {
@@ -7,7 +8,7 @@ const fetchData = async (searchTerm) => {
             headers: {
                 accept: 'application/json',
                 // *IMPORTANT* DO NOT FORGET TO USE PLACEHOLDER INSTEAD OF OUR UNIQUE KEY PLEASE AND THANK YOU
-                Authorization: 'Bearer INSERT KEY HERE'
+                Authorization: 'Bearer INSERT YELP KEY'
             }
         }
         const response = await fetch(`https://api.yelp.com/v3/businesses/search?location=${searchTerm}&sort_by=best_match&limit=20`, options)
@@ -23,7 +24,7 @@ const fetchData = async (searchTerm) => {
 };
 
 // GET /businesses
-router.get("/:searchTerm", async (req, res) => {
+router.get('/:searchTerm', async (req, res) => {
     try {
         const data = await fetchData(req.params.searchTerm);
         res.status(200).json(data); // Send the fetched data as response
