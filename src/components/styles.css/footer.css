@@ -1,6 +1,6 @@
 .footer-container {
     width: 100vw;
-    max-height: 15%;
+    height: 15%;
     background-color: #f8934f;
     position: sticky;
     bottom: 0;
@@ -16,5 +16,6 @@
 }
 
 h4, li {
-    font-size: x-small;
+    font-size: small;
 }
+

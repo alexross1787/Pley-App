@@ -15,6 +15,14 @@ export default function Navbar() {
                     </div>
                         <SearchBar />
                 </div>
+                <div className='links'>
+                    <div className='row'>
+                        <div className='col 4'>Home</div>
+                        <div className='col 4'>Reservations</div>
+                        <div className='col 4'>Reviews</div>
+                        <div className='col 4'>My Account</div>
+                    </div>
+                </div>
              </nav>
         </div>
     )

@@ -1,0 +1,10 @@
+h2 {
+color: #cc5200;
+}
+
+.resv-container {
+    width: 70vw;
+    height: 50vh;
+    background-color: rgb(187, 183, 183);
+    margin: auto;
+}
