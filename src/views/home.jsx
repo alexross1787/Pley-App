@@ -45,7 +45,6 @@ export default function Home() {
     </div>
     <div className="col-sm">
     <Restaurant />
-
     </div>
   </div>
 </div>

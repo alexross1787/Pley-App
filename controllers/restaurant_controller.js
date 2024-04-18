@@ -1,22 +1,12 @@
 //DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
+// const axios = require('axios');
 const sequelize = require('../database')
 const Restaurant = require('../models/restaurant')(sequelize);
 
-// FETCH LIST BASED ON LOCATION
-router.get('/', async (req, res) => {
-    try {
-        const restaurants = await axios.get('https://api.yelp.com/v3');
-        res.status(200).json(restaurants.data);
-    } catch (error) {
-        res.status(500).json('Failed to fetch restaurants');
-    }
-});
-
 // GET ALL RESTAURANTS
-router.get('/getall', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const restaurants = await Restaurant.findAll();
         res.json(restaurants);
@@ -26,24 +16,14 @@ router.get('/getall', async (req, res) => {
     }
 });
 
+
 // FETCH DETAILS BY ID
 router.get('/:id', async (req, res) => {
+    console.log('Hello World!')
     try {
         const restaurantId = req.params.id;
-        const apiKey = process.env.YELP_API_KEY;
-
-        if (!apiKey) {
-            return res.status(500).json('API key missing');
-        }
-
-        const response = await axios.get(`https://api.yelp.com/v3/businesses/${restaurantId}`, {
-            headers: {
-                Authorization: `Bearer ${apiKey}`
-            }
-        });
-        const restaurantDetails = response.data;
-        res.status(200).json(restaurantDetails);
-        
+        const restaurant = await Restaurant.findByPk(restaurantId)
+        res.status(200).json(restaurant);
     } catch (error) {
         console.error('Error fetching restaurant details:', error);
         res.status(500).json('An error occurred while fetching restaurant details');
@@ -65,6 +45,29 @@ router.post('/', async (req, res) => {
     } catch (error) {
         console.error('Error adding restaurant', error);
         res.status(500).json('Failed to add restaurant')
+    }
+})
+
+// PUT ROUTE
+router.put('/:id', async (req, res) => {
+    try {
+        const restaurant = await Restaurant.findByPk(req.params.id)
+        await restaurant.update(req.body)
+        res.json(restaurant)
+    } catch (error) {
+        console.error('Error adding restaurant', error);
+        res.status(500).json('Failed to add restaurant')
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const restaurant = await Restaurant.findByPk(req.params.id)
+        await restaurant.destroy()
+        res.json({ message: 'Successfully deleted :P'})
+    } catch (error) {
+        console.error('Error deleting restaurant', error);
+        res.status(500).json('Failed to delete restaurant')
     }
 })
 
