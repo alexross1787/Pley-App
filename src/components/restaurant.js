@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./styles.css/restaurants.css"
+import "./styles.css/restaurant.css"
 
-export default function Restaurants() {
+export default function Restaurant() {
     return (
         <div>
         <div className="rest-card">
@@ -10,7 +10,7 @@ export default function Restaurants() {
         <img className="card-img-top" src="/restaurant-sample-pic.jpg" alt="Card image cap"/>
         </div>
         <div className="card-body">
-          <h5 className="card-title">Restaurant Name</h5>
+          <h5 className="card-title ">Restaurant Name</h5>
           <p className="card-text"> Rating{}/ (amount of reviews) /Distance/ Pr </p>
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
         </div>

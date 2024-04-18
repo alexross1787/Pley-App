@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles.css/navbar.css";
 
-import { searchFunction } from '../api/searchFunction';
-
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
 

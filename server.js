@@ -1,11 +1,14 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const axios = require('axios');
+const cors = require('cors')
+const yelpController = require('./controllers/yelp_controller')
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();
+app.use(cors());
 app.use(express.json());
+
 
 // IMPORT CONTROLLERS
 const reservationController = require('./controllers/reservation_controller');
@@ -13,12 +16,17 @@ const restaurantController = require('./controllers/restaurant_controller');
 const reviewController = require('./controllers/review_controller');
 const userController = require('./controllers/user_controller');
 
+// CONTROLLERS
+app.use("/api", yelpController)
+
+
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
         message: 'Welcome to Pley'
     });
 });
+
 
 // Create a new Router instance
 const router = express.Router();
@@ -39,7 +47,7 @@ router.use('/users', userController);
 app.use('/', router);
 
 // LISTEN
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
