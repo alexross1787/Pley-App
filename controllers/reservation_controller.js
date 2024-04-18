@@ -1,13 +1,12 @@
-
 //DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const { Reservation } = require('../models');
+const { Reservation } = require('../models/reservation');
 
 //FIND ALL
 router.get('/', async (req, res) => {
     try {
-        // Fetchs all reservations from the database
+        // Fetch all reservations from the database
         const foundReservations = await Reservation.findAll();
         res.status(200).json(foundReservations);
     } catch (error) {
@@ -20,7 +19,7 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
         // Find reservation by ID in the database
-        const reservation = await Reservation.findByPk(id);
+        const reservation = await Reservation.findOne({ where: { id } });
         if (!reservation) {
             return res.status(404).json('Reservation not found');
         }
@@ -51,7 +50,7 @@ router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { name, numberOfGuests, dateTime, specialRequests } = req.body;
     try {
-        const reservation = await Reservation.findByPk(id);
+        const reservation = await Reservation.findOne({ where: { id } });
         if (!reservation) {
             return res.status(404).json('Reservation not found');
         }
@@ -70,19 +69,20 @@ router.put('/:id', async (req, res) => {
 //DELETE
 router.delete('/:id', async (req, res) => {
     try {
-        const reservation = await Reservation.findByPk(req.params.id);
+        const reservation = await Reservation.findOne({ where: { id: req.params.id } });
 
         if (!reservation) {
             return res.status(404).json('Reservation not found');
         }
         await reservation.destroy();
-        res.status(200).json(`Successfully deleted reservation with ID ${req.params.id}`
-        );
+        res.status(200).json(`Successfully deleted reservation with ID ${req.params.id}`);
     } catch (error) {
         res.status(500).json(error);
     }
 });
 
-module.exports = Reservation
+module.exports = router; 
+
+
 
 
