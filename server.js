@@ -37,7 +37,7 @@ router.use((req, res, next) => {
     next();
 });
 
-// Add your existing routes to the router
+// Add existing routes to the router
 router.use('/reservations', reservationController);
 router.use('/restaurants', restaurantController);
 router.use('/reviews', reviewController);
