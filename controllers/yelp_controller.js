@@ -51,7 +51,7 @@ const fetchData = async (searchTerm) => {
             headers: {
                 accept: 'application/json',
                 // *IMPORTANT* DO NOT FORGET TO USE PLACEHOLDER INSTEAD OF OUR UNIQUE KEY PLEASE AND THANK YOU
-                Authorization: 'Bearer kYacL2c57nggdw4pMvQeWyrowP2ysRkCtzpXFC1zL3dqNb9Opxjo6QgriTRFi2zurMcgiNqjeISvmASx2OPl3BX-Eq0CrLcKj48-7_v6M4aVsTgLjkBD0d04A-odZnYx'
+                Authorization: 'Bearer INSERT KEY'
             }
         }
         // Using dynamic import() instead of require() for ES Module
