@@ -9,6 +9,9 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
+// CONTROLLERS
+app.use("/api", yelpController)
+
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -16,8 +19,6 @@ app.get('/', (req, res) => {
     });
 });
 
-// CONTROLLERS
-app.use("/api", yelpController)
 
 // LISTEN
 const PORT = process.env.PORT || 3000;
