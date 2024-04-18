@@ -6,13 +6,14 @@ import Reservations from './views/reservations';
 import Reviews from './views/reviews';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
+import RestaurantForm from './components/forms/restaurant_form';
 
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/newRestaurant" element={<Restaurant></Restaurant>} />
+        <Route exact path="/newRestaurant" element={<RestaurantForm></RestaurantForm>} />
       </Routes>
     </Router>
   );
