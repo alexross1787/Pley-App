@@ -1,3 +1,5 @@
+const GET_ALL_REVIEWS = 'review/getAllReviews'
+const GET_REVIEW = 'review/getReview'
 const ADD_REVIEWS = 'review/addReviews'
 const UPDATE_REVIEWS = 'review/updateReviews'
 const DELETE_REVIEWS = 'review/deleteReviews'
@@ -27,6 +29,14 @@ export const createNewReview = (formData) => async (dispatch) => {
         return data.id
     }
 }
+
+export const getAllReviews = () => async (dispatch) => {
+    const res = await fetch('/reviews', {method: 'GET'})
+    const data = await res.json();
+
+    if (!data) return null
+    dispatch(setReviews(data))
+};
 
 // UPDATE REVIEWS
 export const updateReview = (formData, id) => async (dispatch) => {
