@@ -3,10 +3,6 @@ const GET_RESTAURANT = 'restaurant/getRestaurant'
 const ADD_RESTAURANT = 'restaurant/addRestaurant'
 const UPDATE_RESTAURANT = 'restaurant/updateRestaurant'
 const DELETE_RESTAURANT = 'restaurant/deleteRestaurant'
-const ADD_REVIEWS = 'restaurant/addReviews'
-const UPDATE_REVIEWS = 'restaurant/updateReviews'
-const DELETE_REVIEWS = 'restaurant/deleteReviews'
-
 
 // ACTION FUNCTIONS
 const setRestaurants = (restaurants) => ({ type: GET_ALL_RESTAURANTS, payload: restaurants });

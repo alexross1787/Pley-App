@@ -2,9 +2,9 @@
 //Contains fields such as user ID (foreign key), restaurant ID (foreign key), review text, rating, and timestamp.
 //May include additional fields for review titles, review scores, or review images.
 
-const { Model } = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize) => {
     class Review extends Model {
         static associate({ User, Restaurant }) {
             // Define associations
@@ -36,13 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         rating: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        timestamp: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
-        // Add 
+        }
     }, {
         sequelize,
         modelName: 'Review'

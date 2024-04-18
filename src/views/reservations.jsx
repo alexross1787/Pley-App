@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../components/styles.css/footer.css"
 import ReservationList from "../components/reservationList";
 
-export default function Reservationss() {
+export default function Reservations() {
     return (
         <div>
         <Navbar />
