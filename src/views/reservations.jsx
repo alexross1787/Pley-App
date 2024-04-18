@@ -11,7 +11,9 @@ export default function Reservationss() {
     return (
         <div>
         <Navbar />
+        <div>
         <ReservationList />
+      </div>
         <Footer />
         </div>
     )

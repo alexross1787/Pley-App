@@ -3,7 +3,7 @@
     height: 15%;
     background-color: #f8934f;
     position: sticky;
-    bottom: 0;
+    bottom: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
