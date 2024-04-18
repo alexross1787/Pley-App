@@ -1,8 +1,10 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const cors = require('cors')
-const yelpController = require('./controllers/yelp_controller')
+const sequelize = require('./database');
+const Sequelize = require('sequelize');
+const cors = require('cors');
+const yelpController = require('./controllers/yelp_controller');
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();
@@ -27,7 +29,6 @@ app.get('/', (req, res) => {
     });
 });
 
-
 // Create a new Router instance
 const router = express.Router();
 
@@ -46,8 +47,27 @@ router.use('/users', userController);
 // Add the router to the main application
 app.use('/', router);
 
-// LISTEN
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+const User = sequelize.define('User', {
+    username: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+})
+
+sequelize.sync()
+.then(() => {
+    console.log('Database synced successfully');
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`)
+    })
+})
+.catch(err => {
+    console.error('Error syncing with database:', err);
+})
+
+// // LISTEN
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });

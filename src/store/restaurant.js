@@ -18,7 +18,7 @@ export const createNewRestaurant = (formData) => async (dispatch) => {
 }
 
 export const getAllRestaurants = () => async (dispatch) => {
-    const res = await fetch('/', {method: 'GET'})
+    const res = await fetch('/getall', {method: 'GET'})
     const data = await res.json();
 
     if (!data) return null
