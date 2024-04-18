@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const { Review } = require('../models');
+const { Review } = require('../models/review');
 
 // FETCH ALL REVIEWS
 router.get('/', async (req, res) => {
@@ -67,4 +67,4 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-module.exports = Review;
+module.exports = router;
