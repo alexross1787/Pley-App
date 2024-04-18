@@ -11,7 +11,6 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
-
 // IMPORT CONTROLLERS
 const reservationController = require('./controllers/reservation_controller');
 const restaurantController = require('./controllers/restaurant_controller');
@@ -21,7 +20,6 @@ const userController = require('./controllers/user_controller');
 // CONTROLLERS
 app.use("/api", yelpController)
 
-
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -29,10 +27,13 @@ app.get('/', (req, res) => {
     });
 });
 
+// Import Sequelize models
+const Restaurant = require('./models/restaurant')(sequelize, Sequelize);
+
 // Create a new Router instance
 const router = express.Router();
 
-// Add a middleware function that logs requests
+// Logs requests
 router.use((req, res, next) => {
     console.log(`${req.method} request to ${req.url}`);
     next();
@@ -47,27 +48,17 @@ router.use('/users', userController);
 // Add the router to the main application
 app.use('/', router);
 
-const User = sequelize.define('User', {
-    username: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
-})
-
+// Sync Sequelize models with the database
 sequelize.sync()
-.then(() => {
-    console.log('Database synced successfully');
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`)
+    .then(() => {
+        console.log('Database synced successfully');
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`)
+        })
     })
-})
-.catch(err => {
-    console.error('Error syncing with database:', err);
-})
+    .catch(err => {
+        console.error('Error syncing with database:', err);
+    })
 
-// // LISTEN
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
+module.exports = app;
