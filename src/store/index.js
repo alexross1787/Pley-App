@@ -1,9 +1,4 @@
-import {
-    createStore,
-    combineReducers,
-    applyMiddleware,
-    compose,
-  } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose, } from "redux";
   
   import restaurantReducer from "./restaurant";
   const rootReducer = combineReducers({
