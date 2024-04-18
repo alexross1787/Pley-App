@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { createNewRestaurant } from "../../store/restaurant";
 
 export default function RestaurantForm() {
     const [name, setName] = useState(''); 
     const [address, setAddress] = useState('');
     const [cuisine, setCuisine] = useState('');
     const [capacity, setCapacity] = useState('');
+    const handleSubmit = () => {
+        dispatchEvent(createNewRestaurant()).then((id) =>{
+            {name, address, cuisine, capacity}
+        })
+    }
     return (
         <div class="container">
         <form id="restaurantForm" onSubmit={(e) => e.preventDefault()}>
@@ -16,7 +22,7 @@ export default function RestaurantForm() {
 
             <input value={capacity} onChange={(e) => setCapacity(e.target.value)} type="number" placeholder="Capacity" class="form-label" id="capacity" required></input>
 
-            <button type="submit" class="btn btn-primary">submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
     )
