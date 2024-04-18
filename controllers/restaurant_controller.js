@@ -38,4 +38,16 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+// ADD RESTAURANT
+router.post('/', async (req, res) => {
+    const newRestaurant = await Restaurant.create(req.body)
+    res.status(201).json(newRestaurant)
+})
+
+// GET ALL RESTAURANTS
+router.get('/getall', async (req, res) => {
+    const restaurants = await Restaurant.findAll()
+    res.json(restaurants)
+})
+
+module.exports = Restaurant;
