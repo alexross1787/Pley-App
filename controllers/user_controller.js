@@ -1,7 +1,8 @@
 //DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const { User, Review } = require('../models');
+const User = require('../models/user');
+const Review = require('../models/review');
 
 // FETCH ALL REVIEWS BY USER
 router.get('/:userId/reviews', async (req, res) => {
@@ -79,4 +80,4 @@ router.delete('/:userId/reviews/:reviewId', async (req, res) => {
     }
 });
 
-module.exports = User;
+module.exports = router;

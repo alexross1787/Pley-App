@@ -7,6 +7,12 @@ const axios = require('axios');
 require('dotenv').config();
 app.use(express.json());
 
+// IMPORT CONTROLLERS
+const reservationController = require('./controllers/reservation_controller');
+const restaurantController = require('./controllers/restaurant_controller');
+const reviewController = require('./controllers/review_controller');
+const userController = require('./controllers/user_controller');
+
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -14,11 +20,26 @@ app.get('/', (req, res) => {
     });
 });
 
-// CONTROLLERS
+// Create a new Router instance
+const router = express.Router();
+
+// Add a middleware function that logs requests
+router.use((req, res, next) => {
+    console.log(`${req.method} request to ${req.url}`);
+    next();
+});
+
+// Add your existing routes to the router
+router.use('/reservations', reservationController);
+router.use('/restaurants', restaurantController);
+router.use('/reviews', reviewController);
+router.use('/users', userController);
+
+// Add the router to the main application
+app.use('/', router);
 
 // LISTEN
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-

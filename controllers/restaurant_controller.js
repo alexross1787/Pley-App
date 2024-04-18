@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const { Restaurant } = require('../models');
+const { Restaurant } = require('../models/restaurant');
 
 // FETCH LIST BASED ON LOCATION
 router.get('/', async (req, res) => {
@@ -38,4 +38,4 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-module.exports = Restaurant;
+module.exports = router;
