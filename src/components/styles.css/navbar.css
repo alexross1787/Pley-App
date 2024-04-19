@@ -1,3 +1,6 @@
+/* * {
+    outline: 1px solid red;
+} */
 .sticky-navbar {
     position: sticky;
     top: 0;
@@ -6,13 +9,24 @@
 
 .bg-custom {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 13vh;
+
 }
 
 .navbar {
-    height: 80px;
+    
+    position: relative;
 
 }
 
+.nav-top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+}
 
 .navbar-brand {
     margin: 0 ;
@@ -22,9 +36,13 @@
 
 }
 
+
+
 .pley-logo {
-    height: 100%;
+    height: 110%;
 }
+
+
 .tagline-container {
     margin: 0; 
     padding: 0;
@@ -34,12 +52,13 @@
 
 .tagline {
     margin: 0 ;
-    padding: 1em;
+    padding: 0 1em;
     color: #cc5200;
     font-size: large;
     font-family: 'Baloo 2';
     font-weight: bolder;
     height: 50%;
+    text-align: center;
    
 }
 
@@ -55,13 +74,21 @@
 .searchbar-container {
     padding: 0;
     margin: 0;
-    width: 60%;
+    width: 75%;
     height: 20%;
     display: flex;
     justify-content: center;
     position: relative;
-    top: 25%;
+    top: 20%;
+    right: 2px;
     
 
+}
+
+.nav-links {
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
 }
 
