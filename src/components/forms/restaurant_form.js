@@ -6,24 +6,30 @@ export default function RestaurantForm() {
     const [address, setAddress] = useState('');
     const [cuisine, setCuisine] = useState('');
     const [capacity, setCapacity] = useState('');
+    const [image, setImage] = useState(null); // State for the image
+
     const handleSubmit = () => {
         dispatchEvent(createNewRestaurant()).then((id) =>{
-            {name, address, cuisine, capacity}
+            { name, address, cuisine, capacity, image } // Include image in the data being sent
         })
     }
+
     return (
-        <div class="container">
-        <form id="restaurantForm" onSubmit={(e) => e.preventDefault()}>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Restaurant Name" class="form-label" id="name" required></input>
+        <div className="container">
+            <form id="restaurantForm" onSubmit={(e) => e.preventDefault()}>
+                <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Restaurant Name" className="form-label" id="name" required />
+                <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Address" className="form-label" id="address" required />
+                <input value={cuisine} onChange={(e) => setCuisine(e.target.value)} type="text" placeholder="Cuisine" className="form-label" id="cuisine" required />
+                <input value={capacity} onChange={(e) => setCapacity(e.target.value)} type="number" placeholder="Capacity" className="form-label" id="capacity" required />
 
-            <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Address" class="form-label" id="address" required></input>
+                {/* Input for uploading image */}
+                <input type="file" onChange={(e) => setImage(e.target.files[0])} accept="image/*" /> {/* Accepts only image files */}
 
-            <input value={cuisine} onChange={(e) => setCuisine(e.target.value)} type="text" placeholder="Cuisine" class="form-label" id="cuisine" required></input>
+                {/* Input for providing a link to an image */}
+                {/* <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} type="url" placeholder="Image URL" className="form-label" id="imageUrl" /> */}
 
-            <input value={capacity} onChange={(e) => setCapacity(e.target.value)} type="number" placeholder="Capacity" class="form-label" id="capacity" required></input>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
         </div>
     )
 }

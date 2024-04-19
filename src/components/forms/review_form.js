@@ -1,26 +1,26 @@
 import { useState } from "react";
-import { createNewRestaurant } from "../../store/restaurant";
+import { createNewReview } from "../../store/review";
 
-export default function RestaurantForm() {
-    const [name, setName] = useState(''); 
-    const [address, setAddress] = useState('');
-    const [cuisine, setCuisine] = useState('');
-    const [capacity, setCapacity] = useState('');
+export default function ReviewForm() {
+    const [userId, setUserId] = useState(''); 
+    const [restaurantId, setRestaurantId] = useState('');
+    const [review, setReview] = useState('');
+    const [rating, setRating] = useState('');
     const handleSubmit = () => {
         dispatchEvent(createNewRestaurant()).then((id) =>{
-            {name, address, cuisine, capacity}
+            {userId, restaurantId, review, rating}
         })
     }
     return (
         <div class="container">
-        <form id="restaurantForm" onSubmit={(e) => e.preventDefault()}>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Restaurant Name" class="form-label" id="name" required></input>
+        <form id="userForm" onSubmit={(e) => e.preventDefault()}>
+            <input value={userId} onChange={(e) => setUserId(e.target.value)} type="text" placeholder="User ID" class="form-label" id="userId" required></input>
 
-            <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Address" class="form-label" id="address" required></input>
+            <input value={restaurantId} onChange={(e) => setRestaurantId(e.target.value)} type="text" placeholder="Restaurant Number" class="form-label" id="restaurantId" required></input>
 
-            <input value={cuisine} onChange={(e) => setCuisine(e.target.value)} type="text" placeholder="Cuisine" class="form-label" id="cuisine" required></input>
+            <input value={review} onChange={(e) => setReview(e.target.value)} type="text" placeholder="Insert Review Here" class="form-label" id="review" required></input>
 
-            <input value={capacity} onChange={(e) => setCapacity(e.target.value)} type="number" placeholder="Capacity" class="form-label" id="capacity" required></input>
+            <input value={rating} onChange={(e) => setRating(e.target.value)} type="number" placeholder="Rating" class="form-label" id="rating" required></input>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
