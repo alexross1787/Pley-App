@@ -6,17 +6,18 @@ export default function ReviewForm() {
     const [restaurantId, setRestaurantId] = useState('');
     const [review, setReview] = useState('');
     const [rating, setRating] = useState('');
+
     const handleSubmit = () => {
-        dispatchEvent(createNewRestaurant()).then((id) =>{
+        dispatchEvent(createNewReview()).then((id) =>{
             {userId, restaurantId, review, rating}
         })
     }
     return (
         <div class="container">
-        <form id="userForm" onSubmit={(e) => e.preventDefault()}>
-            <input value={userId} onChange={(e) => setUserId(e.target.value)} type="text" placeholder="User ID" class="form-label" id="userId" required></input>
+        <form id="reviewForm" onSubmit={(e) => e.preventDefault()}>
+            <input value={userId} onChange={(e) => setUserId(e.target.value)} type="number" placeholder="User ID Number" class="form-label" id="userId" required></input>
 
-            <input value={restaurantId} onChange={(e) => setRestaurantId(e.target.value)} type="text" placeholder="Restaurant Number" class="form-label" id="restaurantId" required></input>
+            <input value={restaurantId} onChange={(e) => setRestaurantId(e.target.value)} type="number" placeholder="Restaurant Number" class="form-label" id="restaurantId" required></input>
 
             <input value={review} onChange={(e) => setReview(e.target.value)} type="text" placeholder="Insert Review Here" class="form-label" id="review" required></input>
 
