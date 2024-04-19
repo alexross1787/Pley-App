@@ -9,7 +9,6 @@ const DELETE_RESTAURANT = 'restaurant/deleteRestaurant'
 const setRestaurants = (restaurants) => ({ type: GET_ALL_RESTAURANTS, payload: restaurants });
 const addRestaurant = (restaurant) => ({ type: ADD_RESTAURANT, payload: restaurant });
 const removeRestaurant = (id) => ({ type: DELETE_RESTAURANT, payload: id });
-
 const setRestaurant = (restaurant) => ({ type: GET_RESTAURANT, payload: restaurant })
 
 export const getRestaurant = (id) => async (dispatch) => {

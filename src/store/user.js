@@ -14,17 +14,21 @@ const setUser = (user) => ({ type: GET_USER, payload: user })
 export const getUser = (id) => async (dispatch) => {
     const data = (await fetch(`/users/${id}`)).json
 
-    if (data) dispatch(setRestaurant(data))
+    if (data) dispatch(setUser(data))
 }
 
 // THUNK ADDING
 export const createNewUser = (formData) => async (dispatch) => {
-    const res = await fetch('/', {method: 'POST', body: JSON.stringify(formData)})
+    const res = await fetch ('/users', {
+        method: 'POST', 
+        body: JSON.stringify(formData)
+    })
     const data = await res.json();
-
-    if (!data) return null 
-    dispatch(addUser(data))
-};
+    if (data) {
+        dispatch(addUser(data))
+        return data.id
+    }
+}
 
 // THUNK GET ALL
 export const getAllUsers = () => async (dispatch) => {
@@ -36,14 +40,14 @@ export const getAllUsers = () => async (dispatch) => {
 };
 
 // THUNK UPDATE
-export const updateRestaurant = (formData, id) => async (dispatch) => {
+export const updateUser = (formData, id) => async (dispatch) => {
     const data = await fetch(`/users/${id}`, {method: 'PUT', body:JSON.stringify
     (formData),
 }).json();
 };
 
 // THUNK DELETE
-export const deleteRestaurant = (formData, id) => async (dispatch) => {
+export const deleteUser = (id) => async (dispatch) => {
     const res = (await fetch(`/users/${id}`, {method: 'DELETE'})).json();
 
     return dispatch(removeUser(id))

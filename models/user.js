@@ -2,9 +2,9 @@
 //Contains: username, email, password (hashed), profile information, and possibly roles or permissions.
 //additional: user preferences, settings, or authentication tokens.
 
-const { Model } = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize) => {
     class User extends Model {
         static associate({ Review }) {
             // Define associations

@@ -1,82 +1,68 @@
 //DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
-const Review = require('../models/review');
+const sequelize = require('../database')
+const User = require('../models/user')(sequelize);
 
-// FETCH ALL REVIEWS BY USER
-router.get('/:userId/reviews', async (req, res) => {
+// GET ALL USERS
+router.get('/', async (req, res) => {
     try {
-        const userId = req.params.userId;
-        const user = await User.findOne({ where: { id: userId }, include: Review });
-
-        if (!user) return res.status(404).json('User not found');
-        res.status(200).json(user.Reviews);
-
+        const users = await User.findAll();
+        res.json(users);
     } catch (error) {
-        res.status(500).json('Failed to fetch user reviews');
+        console.error('Error fetching users:', error);
+        res.status(500).json('Failed to fetch users');
     }
 });
 
-// FETCH A SPECIFIC REVIEW BY USER
-router.get('/:userId/reviews/:reviewId', async (req, res) => {
+// FETCH USER BY ID
+router.get('/:id', async (req, res) => {
     try {
-        const { userId, reviewId } = req.params;
-        const review = await Review.findOne({ where: { id: reviewId, UserId: userId } });
-
-        if (!review) return res.status(404).json('Review not found');
-        res.status(200).json(review);
-
-    } catch (error) {
-        res.status(500).json('Failed to fetch user review');
-    }
-});
-
-// CREATE A NEW REVIEW FOR USER
-router.post('/:userId/reviews', async (req, res) => {
-    const { userId } = req.params;
-    const { title, content, rating, restaurantId } = req.body;
-    try {
+        const userId = req.params.id;
         const user = await User.findOne({ where: { id: userId } });
 
         if (!user) return res.status(404).json('User not found');
-
-        const newReview = await Review.create({ title, content, rating, restaurantId, UserId: userId });
-        res.status(201).json(newReview);
-
+        res.status(200).json(user);
     } catch (error) {
-        res.status(500).json('Failed to create review');
+        res.status(500).json('An error occurred while fetching user details');
     }
 });
 
-// UPDATE A REVIEW BY USER
-router.put('/:userId/reviews/:reviewId', async (req, res) => {
-    const { userId, reviewId } = req.params;
-    const { title, content, rating } = req.body;
+// CREATE USER
+router.post('/', async (req, res) => {
+    const { username, email, password, profileInfo } = req.body;
     try {
-        const review = await Review.findOne({ where: { id: reviewId, UserId: userId } });
-
-        if (!review) return res.status(404).json('Review not found');
-        await review.update({ title, content, rating });
-        res.status(200).json(review);
-
+        const newUser = await User.create({ username, email, password, profileInfo });
+        res.status(201).json(newUser);
     } catch (error) {
-        res.status(500).json('Failed to update review');
+        res.status(500).json('Failed to create user');
     }
 });
 
-// DELETE A REVIEW BY USER
-router.delete('/:userId/reviews/:reviewId', async (req, res) => {
-    const { userId, reviewId } = req.params;
+// UPDATE USER
+router.put('/:id', async (req, res) => {
     try {
-        const review = await Review.findOne({ where: { id: reviewId, UserId: userId } });
+        const user = await User.findByPk(req.params.id)
+        await user.update(req.body)
+        res.json(user)
+    } catch (error) {
+        console.error('Error adding user', error);
+        res.status(500).json('Failed to add user')
+    }
+})
 
-        if (!review) return res.status(404).json('Review not found');
-        await review.destroy();
-        res.status(200).json('Review deleted successfully');
+// DELETE USER
+router.delete('/:id', async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findOne({ where: { id: userId } });
+
+        if (!user) return res.status(404).json('User not found');
         
+        await user.destroy();
+        res.status(200).json('User deleted successfully');
     } catch (error) {
-        res.status(500).json('Failed to delete review');
+        res.status(500).json('Failed to delete user' );
     }
 });
 

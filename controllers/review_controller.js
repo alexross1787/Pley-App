@@ -5,17 +5,6 @@ const router = express.Router();
 const sequelize = require('../database')
 const Review = require('../models/review')(sequelize);
 
-
-// FETCH ALL REVIEWS
-// router.get('/', async (req, res) => {
-//     try {
-//         const reviews = await Review.findAll();
-//         res.status(200).json(reviews);
-//     } catch (error) {
-//         res.status(500).json('Failed to fetch reviews');
-//     }
-// });
-
 // GET ALL REVIEWS
 router.get('/', async (req, res) => {
     try {
@@ -52,19 +41,6 @@ router.post('/', async (req, res) => {
 });
 
 // UPDATE REVIEW
-// router.put('/:id', async (req, res) => {
-//     try {
-//         const reviewId = req.params.id;
-//         const review = await Review.findOne({ where: { id: reviewId } });
-
-//         if (!review) return res.status(404).json('Review not found');
-        
-//         await review.update(req.body);
-//         res.status(200).json(review);
-//     } catch (error) {
-//         res.status(500).json('Failed to update review');
-//     }
-// });
 router.put('/:id', async (req, res) => {
     try {
         const review = await Review.findByPk(req.params.id)
