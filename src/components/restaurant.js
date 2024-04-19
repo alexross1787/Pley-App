@@ -11,7 +11,7 @@ export default function Restaurant() {
         </div>
         <div className="card-body">
           <h5 className="card-title ">Restaurant Name</h5>
-          <p className="card-text"> Rating{}/ (amount of reviews) /Distance/ Pr </p>
+          <p className="card-text"> Rating{}/ (amount of reviews) /Distance/ Price </p>
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
         </div>
       </div> 
