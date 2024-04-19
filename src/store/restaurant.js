@@ -1,3 +1,4 @@
+// ACTION TYPES
 const GET_ALL_RESTAURANTS = 'restaurant/getAllRestaurants'
 const GET_RESTAURANT = 'restaurant/getRestaurant'
 const ADD_RESTAURANT = 'restaurant/addRestaurant'
@@ -17,7 +18,7 @@ export const getRestaurant = (id) => async (dispatch) => {
     if (data) dispatch(setRestaurant(data));
 };
 
-// ADD RESTAURANTS
+// THUNK ADDING 
 export const createNewRestaurant = (formData) => async (dispatch) => {
     const res = await fetch ('/restaurants', {
         method: 'POST', 
@@ -30,6 +31,7 @@ export const createNewRestaurant = (formData) => async (dispatch) => {
     }
 }
 
+// THUNK GET ALL
 export const getAllRestaurants = () => async (dispatch) => {
     const res = await fetch('/restaurants', {method: 'GET'})
     const data = await res.json();
@@ -38,13 +40,13 @@ export const getAllRestaurants = () => async (dispatch) => {
     dispatch(setRestaurants(data))
 };
 
-// UPDATE RESTAURANTS
+// THUNK UPDATE
 export const updateRestaurant = (formData, id) => async (dispatch) => {
     const data = await fetch(`/restaurants/${id}`, {method: 'PUT', body:JSON.stringify(formData),
 }).json();
 };
 
-// DELETE RESTAURANTS
+// THUNK DELETE
 export const deleteRestaurant = (id) => async (dispatch) => {
     const res = (await fetch(`/restaurants/${id}`, {method: 'DELETE'})).json();
 
