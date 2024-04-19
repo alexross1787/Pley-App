@@ -35,7 +35,7 @@ export const getAllUsers = () => async (dispatch) => {
     dispatch(setUsers(data))
 };
 
-//THUNK UPDATE
+// THUNK UPDATE
 export const updateRestaurant = (formData, id) => async (dispatch) => {
     const data = await fetch(`/users/${id}`, {method: 'PUT', body:JSON.stringify
     (formData),
