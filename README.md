@@ -61,3 +61,5 @@ Pley-App is built using the following technologies:
 ## Outstanding Bugs/ Unfinished Features
 - Trouble with delete and edit with front end for restaurant
 - trouble with reservation and reviews feature
+- Storing
+- Api
