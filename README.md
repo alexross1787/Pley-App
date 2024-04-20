@@ -9,7 +9,6 @@ Pley App is your all-in-one solution for discovering, booking, and enjoying dini
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Bugs](#bugs)
-- [License](#license)
 
 ## Key Features
 - **Discover:** Explore a wide range of restaurants and dining options.
