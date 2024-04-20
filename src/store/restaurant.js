@@ -19,6 +19,7 @@ export const getRestaurant = (id) => async (dispatch) => {
 
 // THUNK ADDING 
 export const createNewRestaurant = (formData) => async (dispatch) => {
+    console.log(formData, JSON.stringify(formData))
     const res = await fetch ('/restaurants', {
         method: 'POST', 
         body: JSON.stringify(formData)

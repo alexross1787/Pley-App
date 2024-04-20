@@ -1,12 +1,6 @@
-import { createStore, combineReducers, applyMiddleware, compose, } from "redux";
-  
-  import restaurantReducer from "./restaurant";
-  const rootReducer = combineReducers({
-    session: restaurantReducer
-  });
-  
-  const configureStore = (preloadedState) => {
-    return createStore(rootReducer, preloadedState, enhancer);
-  };
-  
-  export default configureStore;
+import { legacy_createStore as createStore, applyMiddleware } from 'redux'
+import { thunk } from 'redux-thunk'
+
+import restaurantReducer from "./restaurant";
+
+export default createStore(restaurantReducer, applyMiddleware(thunk))

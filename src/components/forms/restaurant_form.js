@@ -3,8 +3,7 @@ import { createNewRestaurant } from "../../store/restaurant";
 import Navbar from "../navbar";
 import Footer from "../footer";
 import "../styles.css/form.css"
-
-
+import { useDispatch } from "react-redux";
 
 export default function RestaurantForm() {
     const [name, setName] = useState(''); 
@@ -12,11 +11,10 @@ export default function RestaurantForm() {
     const [cuisine, setCuisine] = useState('');
     const [capacity, setCapacity] = useState('');
     const [image, setImage] = useState(null); // State for the image
+    const dispatch = useDispatch();
 
     const handleSubmit = () => {
-        dispatchEvent(createNewRestaurant()).then((id) =>{
-            { name, address, cuisine, capacity, image } // Include image in the data being sent
-        })
+        dispatch(createNewRestaurant({name, address, cuisine, capacity}))
     }
 
     return (
@@ -35,7 +33,7 @@ export default function RestaurantForm() {
                 {/* Input for providing a link to an image */}
                 {/* <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} type="url" placeholder="Image URL" className="form-label" id="imageUrl" /> */}
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
             </form>
         </div>
         <Footer />
