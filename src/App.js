@@ -16,7 +16,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/newRestaurant" element={<RestaurantForm></RestaurantForm>} />
-        <Route path="/restaurants/:id" element={<Restaurant />} />
+        <Route path="/restaurants/:restaurantId" element={<Restaurant />} />
         <Route exact path="/newUser" element={<UserForm></UserForm>} />
         <Route exact path="/newReview" element={<ReviewForm></ReviewForm>} />
       </Routes>
