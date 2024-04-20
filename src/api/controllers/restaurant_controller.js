@@ -1,7 +1,7 @@
 //DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const sequelize = require('../database')
+const sequelize = require('./database');
 const Restaurant = require('../models/restaurant')(sequelize);
 
 // GET ALL RESTAURANTS

@@ -4,7 +4,9 @@ const app = express();
 const { Sequelize } = require('sequelize');
 const cors = require('cors');
 const config = require('./config/config')
-const yelpController = require('./controllers/yelp_controller');
+const yelpController = require('./src/api/controllers/yelp_controller');
+
+
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();
@@ -23,10 +25,11 @@ sequelize.authenticate()
 })
 
 // IMPORT CONTROLLERS
-const reservationController = require('./controllers/reservation_controller');
-const restaurantController = require('./controllers/restaurant_controller');
-const reviewController = require('./controllers/review_controller');
-const userController = require('./controllers/user_controller');
+const reservationController = require('./src/api/controllers/reservation_controller');
+const restaurantController = require('./src/api/controllers/restaurant_controller');
+const reviewController = require('./src/api/controllers/review_controller');
+const userController = require('./src/api/controllers/user_controller');
+
 
 // CONTROLLERS
 app.use("/api", yelpController)
