@@ -5,7 +5,7 @@ const { Sequelize } = require('sequelize');
 const cors = require('cors');
 const config = require('./config/config')
 const yelpController = require('./src/api/controllers/yelp_controller');
-
+const AWS = require('./src/components/aws-config')
 
 
 // CONFIGURATION AND MIDDLEWARE
@@ -30,6 +30,8 @@ const restaurantController = require('./src/api/controllers/restaurant_controlle
 const reviewController = require('./src/api/controllers/review_controller');
 const userController = require('./src/api/controllers/user_controller');
 
+// AWS SDK
+const s3 = new AWS.S3();
 
 // CONTROLLERS
 app.use("/api", yelpController)

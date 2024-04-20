@@ -1,21 +1,21 @@
 {
     "development": {
       "username": "postgres",
-      "Test": "Test",
+      "password": "Test",
       "database": "RestaurantTracker",
       "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "test": {
       "username": "postgres",
-      "Test": "Test",
+      "password": "Test",
       "database": "RestaurantTracker",
       "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "production": {
       "username": "postgres",
-      "Test": "Test",
+      "password": "Test",
       "database": "RestaurantTracker",
       "host": "127.0.0.1",
       "dialect": "postgres"
