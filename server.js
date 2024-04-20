@@ -1,15 +1,26 @@
 // DEPENDENCIES
 const express = require('express');
 const app = express();
-const sequelize = require('./database');
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 const cors = require('cors');
+const config = require('./config/config')
 const yelpController = require('./controllers/yelp_controller');
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();
 app.use(cors());
 app.use(express.json());
+
+const sequelize = new Sequelize(config.development);
+
+// Test database
+sequelize.authenticate()
+.then(() => {
+    console.log('DB is working!!')
+})
+.catch(err => {
+    console.error("error", error)
+})
 
 // IMPORT CONTROLLERS
 const reservationController = require('./controllers/reservation_controller');
@@ -61,4 +72,3 @@ sequelize.sync()
         console.error('Error syncing with database:', err);
     })
 
-module.exports = app;
