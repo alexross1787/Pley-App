@@ -21,10 +21,10 @@ export default function Navbar() {
                 
                 <div className='nav-links'>
                     <div className='row'>
-                        <div className='col 3'>Home</div>
-                        <div className='col 3'>Reservations</div>
-                        <div className='col 3'>Reviews</div>
-                        <div className='col 3'>My Account</div>
+                        <a className='col 3' href="/">Home</a>
+                        <a className='col 3' href='/newRestaurant'>Restaurants</a>
+                        <a className='col 3' href='/newReview'>Reviews</a>
+                        <a className='col 3' href='newUser'>My Account</a>
                     </div>
                 </div>
              </nav>

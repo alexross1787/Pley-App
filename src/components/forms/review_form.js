@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { createNewReview } from "../../store/review";
+import Navbar from "../navbar";
+import Footer from "../footer";
+import "../styles.css/form.css"
 
 export default function ReviewForm() {
     const [userId, setUserId] = useState(''); 
@@ -13,18 +16,22 @@ export default function ReviewForm() {
         })
     }
     return (
-        <div class="container">
+        <div>
+            <Navbar />
+        <div className="container form-body">
         <form id="reviewForm" onSubmit={(e) => e.preventDefault()}>
-            <input value={userId} onChange={(e) => setUserId(e.target.value)} type="number" placeholder="User ID Number" class="form-label" id="userId" required></input>
+            <input value={userId} onChange={(e) => setUserId(e.target.value)} type="number" placeholder="User ID Number" className="form-label" id="userId" required></input>
 
-            <input value={restaurantId} onChange={(e) => setRestaurantId(e.target.value)} type="number" placeholder="Restaurant Number" class="form-label" id="restaurantId" required></input>
+            <input value={restaurantId} onChange={(e) => setRestaurantId(e.target.value)} type="number" placeholder="Restaurant Number" className="form-label" id="restaurantId" required></input>
 
-            <input value={review} onChange={(e) => setReview(e.target.value)} type="text" placeholder="Insert Review Here" class="form-label" id="review" required></input>
+            <input value={review} onChange={(e) => setReview(e.target.value)} type="text" placeholder="Insert Review Here" className="form-label" id="review" required></input>
 
-            <input value={rating} onChange={(e) => setRating(e.target.value)} type="number" placeholder="Rating" class="form-label" id="rating" required></input>
+            <input value={rating} onChange={(e) => setRating(e.target.value)} type="number" placeholder="Rating" className="form-label" id="rating" required></input>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+        </div>
+        <Footer />
         </div>
     )
 }

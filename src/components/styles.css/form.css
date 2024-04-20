@@ -1,0 +1,14 @@
+.form-body {
+    margin: auto;
+    padding: 5%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(182, 179, 179);
+}
+
+input {
+    margin-right: .2em;
+}
+

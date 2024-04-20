@@ -9,7 +9,7 @@ import ReservationList from "../components/reservationList";
 
 export default function Reservations() {
     return (
-        <div>
+        <div >
         <Navbar />
         <div>
         <ReservationList />

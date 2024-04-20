@@ -1,5 +1,10 @@
 import { useState } from "react";
 import { createNewRestaurant } from "../../store/restaurant";
+import Navbar from "../navbar";
+import Footer from "../footer";
+import "../styles.css/form.css"
+
+
 
 export default function RestaurantForm() {
     const [name, setName] = useState(''); 
@@ -15,7 +20,9 @@ export default function RestaurantForm() {
     }
 
     return (
-        <div className="container">
+        <div>
+            <Navbar />
+        <div className="container form-body">
             <form id="restaurantForm" onSubmit={(e) => e.preventDefault()}>
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Restaurant Name" className="form-label" id="name" required />
                 <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Address" className="form-label" id="address" required />
@@ -30,6 +37,8 @@ export default function RestaurantForm() {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+        </div>
+        <Footer />
         </div>
     )
 }
