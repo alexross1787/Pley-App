@@ -12,9 +12,11 @@ Pley App is your all-in-one solution for discovering, booking, and enjoying dini
 
 ## Key Features
 - **Discover:** Explore a wide range of restaurants and dining options.
+- **Add:** Add your favorite restaurants if not found
 - **Book:** Make reservations seamlessly with our intuitive booking system.
 - **Enjoy:** Experience culinary delights with confidence and ease.
 - **Review:** Share your dining experiences with others by leaving reviews for restaurants you've visited.
+- **Create:** Create your own user account
 
 ## Usage
 ### Navigating the App
