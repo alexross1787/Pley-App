@@ -3,12 +3,15 @@ import { createNewReview } from "../../store/review";
 import Navbar from "../navbar";
 import Footer from "../footer";
 import "../styles.css/form.css"
+import { useDispatch } from "react-redux";
 
 export default function ReviewForm() {
     const [userId, setUserId] = useState(''); 
     const [restaurantId, setRestaurantId] = useState('');
     const [review, setReview] = useState('');
     const [rating, setRating] = useState('');
+
+    const dispatch = useDispatch();
 
     const handleSubmit = () => {
         dispatchEvent(createNewReview()).then((id) =>{
@@ -18,7 +21,7 @@ export default function ReviewForm() {
     return (
         <div>
             <Navbar />
-        <div className="container form-body">
+        <div className="row justify-content-center align-items-center">
         <form id="reviewForm" onSubmit={(e) => e.preventDefault()}>
             <input value={userId} onChange={(e) => setUserId(e.target.value)} type="number" placeholder="User ID Number" className="form-label" id="userId" required></input>
 
@@ -31,7 +34,6 @@ export default function ReviewForm() {
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
         </div>
-        <Footer />
         </div>
     )
 }
