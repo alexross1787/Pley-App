@@ -1,7 +1,7 @@
 //DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const sequelize = require('../database')
+const sequelize = require('../../../database');
 const User = require('../models/user')(sequelize);
 
 // GET ALL USERS

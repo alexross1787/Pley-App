@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 // const { Review } = require('../models/review');
-const sequelize = require('../database')
+const sequelize = require('../../../database');
 const Review = require('../models/review')(sequelize);
 
 // GET ALL REVIEWS

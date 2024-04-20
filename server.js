@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 });
 
 // Import Sequelize models
-const Restaurant = require('./models/restaurant')(sequelize, Sequelize);
+const Restaurant = require('./src/api/models/restaurant')(sequelize);
 
 // Create a new Router instance
 const router = express.Router();
