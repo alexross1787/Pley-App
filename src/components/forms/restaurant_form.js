@@ -21,7 +21,7 @@ export default function RestaurantForm() {
         <div>
             <Navbar />
         <div className="container form-body">
-            <form id="restaurantForm" onSubmit={(e) => e.preventDefault()}>
+            <form id="restaurantForm" onSubmit={(e) => e.preventDefault()} method="post">
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Restaurant Name" className="form-label" id="name" required />
                 <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Address" className="form-label" id="address" required />
                 <input value={cuisine} onChange={(e) => setCuisine(e.target.value)} type="text" placeholder="Cuisine" className="form-label" id="cuisine" required />

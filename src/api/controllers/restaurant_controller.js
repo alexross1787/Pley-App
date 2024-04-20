@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
 
 // ADD RESTAURANT 
 router.post('/', async (req, res) => {
-    console.log(req.body)
+    console.log('hi', req.body)
     try {
         const { name, address, cuisine, capacity } = req.body;
         const restaurants = await Restaurant.create({

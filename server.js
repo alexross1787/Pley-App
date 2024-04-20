@@ -5,8 +5,6 @@ const { Sequelize } = require('sequelize');
 const cors = require('cors');
 const config = require('./config/config')
 const yelpController = require('./src/api/controllers/yelp_controller');
-const AWS = require('./src/components/aws-config')
-
 
 // CONFIGURATION AND MIDDLEWARE
 require('dotenv').config();

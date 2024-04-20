@@ -20,7 +20,7 @@ export const getRestaurant = (id) => async (dispatch) => {
 // THUNK ADDING 
 export const createNewRestaurant = (formData) => async (dispatch) => {
     console.log(formData, JSON.stringify(formData))
-    const res = await fetch ('/restaurants', {
+    const res = await fetch('http://127.0.0.1:8080/restaurants', {
         method: 'POST', 
         body: JSON.stringify(formData)
     })
