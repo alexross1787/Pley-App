@@ -10,7 +10,7 @@ export default function Navbar() {
             <nav className='navbar navbar-expand-sm navbar-light bg-custom'> 
             <div className='nav-top'>
          
-                <img className="pley-logo" src="/pley-logo.png" alt="Pley Logo" />
+                <img className="pley-logo" src="/Pley-logo.png" alt="Pley Logo" />
                 
                 
                     <div className="tagline-container">
