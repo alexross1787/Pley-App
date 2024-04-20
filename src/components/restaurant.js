@@ -4,25 +4,12 @@ import "./styles.css/restaurant.css"
 import axios from 'axios';
 
 export default function Restaurant() {
-  const [rating, setRating] = useState(0);
-  const [cuisine, setCuisine] = useState(0);
-  const [name, setName] = useState(0);
+  
 
 
   useEffect(() => {
-    axios.get("/RestaurantTracker/Restaurants")
-    .then(response => {
-      const { rating, cuisine, name} = response.data;
-      setRating(rating);
-      setCuisine(cuisine);
-      setName(name);
-
-
-    })
-    .catch(error => {
-      console.log('error fetching restaurant data')
-    })
-  }, [])
+    dispatch(getRestaurant(restaurantId));
+  }, [dispatch, restaurantId]);
 
 
     return (

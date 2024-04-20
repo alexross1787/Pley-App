@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import Home from "./views/home"
-import Restaurant from './views/restaurant';
+import Restaurant from './components/restaurant';
 import Reservations from './views/reservations';
 import Reviews from './views/reviews';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
