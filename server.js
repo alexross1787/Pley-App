@@ -18,7 +18,7 @@ sequelize.authenticate()
 .then(() => {
     console.log('DB is working!!')
 })
-.catch(err => {
+.catch(error => {
     console.error("error", error)
 })
 
@@ -28,8 +28,6 @@ const restaurantController = require('./src/api/controllers/restaurant_controlle
 const reviewController = require('./src/api/controllers/review_controller');
 const userController = require('./src/api/controllers/user_controller');
 
-// AWS SDK
-const s3 = new AWS.S3();
 
 // CONTROLLERS
 app.use("/api", yelpController)

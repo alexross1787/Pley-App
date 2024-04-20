@@ -12,7 +12,7 @@ const removeRestaurant = (id) => ({ type: DELETE_RESTAURANT, payload: id });
 const setRestaurant = (restaurant) => ({ type: GET_RESTAURANT, payload: restaurant })
 
 export const getRestaurant = (id) => async (dispatch) => {
-    const data = (await fetch(`/restaurants/${id}`)).json
+    const data = await((await fetch(`/restaurants/${id}`)).json())
 
     if (data) dispatch(setRestaurant(data));
 };
@@ -22,7 +22,8 @@ export const createNewRestaurant = (formData) => async (dispatch) => {
     console.log(formData, JSON.stringify(formData))
     const res = await fetch('http://127.0.0.1:8080/restaurants', {
         method: 'POST', 
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
+        headers: {"Content-Type": "application/json"}
     })
     const data = await res.json();
     if (data) {
@@ -59,6 +60,8 @@ const restaurantReducer = ( state = initialState, action ) => {
     switch (action.type) {
         case GET_ALL_RESTAURANTS:
             return { allRestaurants: action.payload, restaurant: state.restaurant };
+        case GET_RESTAURANT:
+            return { allRestaurants: state.allRestaurants, restaurant: action.payload }
         case ADD_RESTAURANT:
             return { allRestaurants: [...initialState.allRestaurants, action.payload], restaurant: action.payload };
         case UPDATE_RESTAURANT:
