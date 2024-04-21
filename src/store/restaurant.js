@@ -12,7 +12,7 @@ const removeRestaurant = (id) => ({ type: DELETE_RESTAURANT, payload: id });
 const setRestaurant = (restaurant) => ({ type: GET_RESTAURANT, payload: restaurant })
 
 export const getRestaurant = (id) => async (dispatch) => {
-    const data = await((await fetch(`/restaurants/${id}`)).json())
+    const data = await((await fetch(`http://127.0.0.1:8080/restaurants/${id}`)).json())
 
     if (data) dispatch(setRestaurant(data));
 };
@@ -54,7 +54,7 @@ export const deleteRestaurant = (id) => async (dispatch) => {
     return dispatch(removeRestaurant(id))
 }
 
-const initialState = { allRestaurants: [], restaurant: [] };
+const initialState = { allRestaurants: [], restaurant: {} };
 
 const restaurantReducer = ( state = initialState, action ) => {
     switch (action.type) {

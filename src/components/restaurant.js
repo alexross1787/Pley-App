@@ -1,30 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles.css/restaurant.css"
-import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { getRestaurant } from '../store/restaurant';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Restaurant() {
-  const [rating, setRating] = useState(0);
-  const [cuisine, setCuisine] = useState(0);
-  const [name, setName] = useState(0);
-
+  const dispatch = useDispatch();
+  const { restaurantId } = useParams();
+  const state = useSelector((state) => state)
 
   useEffect(() => {
-    axios.get("/RestaurantTracker/Restaurants")
-    .then(response => {
-      const { rating, cuisine, name} = response.data;
-      setRating(rating);
-      setCuisine(cuisine);
-      setName(name);
+    dispatch(getRestaurant(restaurantId));
+  }, [dispatch, restaurantId]);
 
-
-    })
-    .catch(error => {
-      console.log('error fetching restaurant data')
-    })
-  }, [])
-
-
+  if (!state || !state.restaurant) return null;
+  const restaurant = state.restaurant
     return (
         <div>
         <div className="rest-card">
@@ -32,8 +23,8 @@ export default function Restaurant() {
         <img className="card-img-top" src="/restaurant-sample-pic.jpg" alt="Card image cap"/>
         </div>
         <div className="card-body">
-          <h5 className="card-title ">Restaurant Name</h5>
-          <p className="card-text"> Rating{}/ (amount of reviews) /Distance/ Price </p>
+          <h5 className="card-title ">{restaurant.name}</h5>
+          <p className="card-text"> {restaurant.address}/ {restaurant.cuisine} / {restaurant.capacity} </p>
           <a href="/newRestaurant" className="btn ">More</a>
         </div>
       </div> 

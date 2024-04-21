@@ -4,6 +4,7 @@ import Navbar from "../navbar";
 import Footer from "../footer";
 import "../styles.css/form.css"
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function RestaurantForm() {
     const [name, setName] = useState(''); 
@@ -12,9 +13,12 @@ export default function RestaurantForm() {
     const [capacity, setCapacity] = useState('');
     const [image, setImage] = useState(null); // State for the image
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
-        dispatch(createNewRestaurant({name, address, cuisine, capacity}))
+        dispatch(createNewRestaurant({name, address, cuisine, capacity})).then((id) =>
+        navigate(`/restaurants/${id}`)
+      );
     }
 
     return (

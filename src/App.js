@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import Home from "./views/home"
-import Restaurant from './views/restaurant';
+import Restaurant from './components/restaurant';
 import Reservations from './views/reservations';
 import Reviews from './views/reviews';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
@@ -19,7 +19,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/newRestaurant" element={<RestaurantForm></RestaurantForm>} />
-        <Route path="/restaurants/:id" element={<Restaurant />} />
+        <Route path="/restaurants/:restaurantId" element={<Restaurant />} />
         <Route exact path="/newUser" element={<UserForm></UserForm>} />
         <Route exact path="/newReview" element={<ReviewForm></ReviewForm>} />
         <Route exact path="/newReservation" element={<ReservationForm></ReservationForm>} />

@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 // FETCH DETAILS BY ID
 router.get('/:id', async (req, res) => {
-    console.log('Hello World!')
+    console.log('Hello World!', req.params.id)
     try {
         const restaurantId = req.params.id;
         const restaurant = await Restaurant.findByPk(restaurantId)
