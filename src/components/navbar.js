@@ -23,6 +23,7 @@ export default function Navbar() {
                     <div className='row'>
                         <a className='col 3' href="/">Home</a>
                         <a className='col 3' href='/newRestaurant'>Restaurants</a>
+                        <a className='col 3' href='/newReservation'>Reservations</a>
                         <a className='col 3' href='/newReview'>Reviews</a>
                         <a className='col 3' href='newUser'>My Account</a>
                     </div>

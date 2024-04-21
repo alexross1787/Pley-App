@@ -9,6 +9,9 @@ import { Routes } from 'react-router-dom';
 import RestaurantForm from './components/forms/restaurant_form';
 import ReviewForm from './components/forms/review_form';
 import UserForm from './components/forms/user_form';
+import ReservationForm from './components/forms/reservation_form';
+
+
 
 export default function App() {
   return (
@@ -19,6 +22,7 @@ export default function App() {
         <Route path="/restaurants/:id" element={<Restaurant />} />
         <Route exact path="/newUser" element={<UserForm></UserForm>} />
         <Route exact path="/newReview" element={<ReviewForm></ReviewForm>} />
+        <Route exact path="/newReservation" element={<ReservationForm></ReservationForm>} />
       </Routes>
     </Router>
   );
