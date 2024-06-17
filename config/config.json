@@ -1,22 +1,22 @@
 {
     "development": {
       "username": "postgres",
-      "password": "Monstabitch1",
-      "database": "RestaurantTrackerDB",
+      "password": "PartyCaseGoals85!",
+      "database": "RestaurantTracker",
       "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "test": {
       "username": "postgres",
-      "password": "Monstabitch1",
-      "database": "RestaurantTrackerDB",
+      "password": "PartyCaseGoals85!",
+      "database": "RestaurantTracker",
       "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "production": {
       "username": "postgres",
-      "password": "Monstabitch1",
-      "database": "RestaurantTrackerDB",
+      "password": "PartyCaseGoals85!",
+      "database": "RestaurantTracker",
       "host": "127.0.0.1",
       "dialect": "postgres"
     }
